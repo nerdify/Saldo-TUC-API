@@ -19,7 +19,7 @@ $factory->define(App\Card::class, function ($faker) {
 
 $factory->define(App\Balance::class, function ($faker) {
     return [
-        'balance' => $faker->randomDigit,
+        'balance'  => $faker->randomDigit,
         'spending' => $faker->randomDigit,
     ];
 });

@@ -8,18 +8,19 @@ use League\Fractal\TransformerAbstract;
 class BalanceTransformer extends TransformerAbstract
 {
     /**
-     * Transform Balance
+     * Transform Balance.
      *
      * @param Balance $balance
+     *
      * @return array
      */
     public function transform(Balance $balance)
     {
         return [
-            'id' => (int) $balance->id,
-            'balance' => $balance->balance,
+            'id'       => (int) $balance->id,
+            'balance'  => $balance->balance,
             'spending' => $balance->spending,
-            'created' => $balance->created_at->toIso8601String(),
+            'created'  => $balance->created_at->toIso8601String(),
         ];
     }
 }

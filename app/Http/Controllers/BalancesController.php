@@ -14,7 +14,8 @@ class BalancesController extends ApiController
      * Display a listing of the resource.
      *
      * @param Request $request
-     * @param int $cardNumber
+     * @param int     $cardNumber
+     *
      * @return Response
      */
     public function index(Request $request, $cardNumber)
@@ -27,12 +28,12 @@ class BalancesController extends ApiController
             },
         ])->where('number', $cardNumber)->first();
 
-        if (! $card) {
+        if (!$card) {
             return $this->respondNotFound();
         }
 
         return $this->respond(
-            fractal()->collection($card->balances, new BalanceTransformer)->toArray()
+            fractal()->collection($card->balances, new BalanceTransformer())->toArray()
         );
     }
 
@@ -41,6 +42,7 @@ class BalancesController extends ApiController
      *
      * @param Request $request
      * @param $cardNumber
+     *
      * @return Response
      */
     public function store(Request $request, $cardNumber)
@@ -53,12 +55,12 @@ class BalancesController extends ApiController
 
         if ($currentBalance->wasRecentlyCreated) {
             return $this->respondCreated(
-                fractal()->item($currentBalance, new BalanceTransformer)->toArray()
+                fractal()->item($currentBalance, new BalanceTransformer())->toArray()
             );
         }
 
         return $this->respond(
-            fractal()->item($currentBalance, new BalanceTransformer)->toArray()
+            fractal()->item($currentBalance, new BalanceTransformer())->toArray()
         );
     }
 

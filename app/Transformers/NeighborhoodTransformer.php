@@ -8,7 +8,7 @@ use League\Fractal\TransformerAbstract;
 class NeighborhoodTransformer extends TransformerAbstract
 {
     /**
-     * List of resources possible to include
+     * List of resources possible to include.
      *
      * @var array
      */
@@ -25,6 +25,6 @@ class NeighborhoodTransformer extends TransformerAbstract
 
     public function includeAgencies(Neighborhood $neighborhood)
     {
-        return $this->collection($neighborhood->agencies, new AgencyTransformer);
+        return $this->collection($neighborhood->agencies, new AgencyTransformer());
     }
 }

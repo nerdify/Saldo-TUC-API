@@ -12,6 +12,7 @@ class DistrictsController extends ApiController
      * Display a listing of the resource.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
@@ -20,7 +21,7 @@ class DistrictsController extends ApiController
 
         return $this->respond(
             fractal()
-                ->collection($districts, new DistrictTransformer)
+                ->collection($districts, new DistrictTransformer())
                 ->parseIncludes($request->input('include', []))
                 ->toArray()
         );

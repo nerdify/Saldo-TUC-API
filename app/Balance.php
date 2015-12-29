@@ -11,13 +11,14 @@ class Balance extends Model
      */
     protected $fillable = [
         'balance',
-        'spending'
+        'spending',
     ];
 
     /**
      * Divide by 100 because we store in decimals.
      *
      * @param $balance
+     *
      * @return float
      */
     public function getBalanceAttribute($balance)
@@ -39,6 +40,7 @@ class Balance extends Model
      * Divide by 100 because we store in decimals.
      *
      * @param $spending
+     *
      * @return float
      */
     public function getSpendingAttribute($spending)

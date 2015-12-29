@@ -23,7 +23,8 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     * @param \Illuminate\Console\Scheduling\Schedule $schedule
+     *
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -34,7 +35,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('saldotuc:queueForCards')
             ->hourly()
-            ->when(function() {
+            ->when(function () {
                 $hour = Carbon::now('America/Managua')->hour;
 
                 return $hour >= 6 && $hour <= 20;

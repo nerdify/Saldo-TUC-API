@@ -12,7 +12,7 @@ class AgenciesController extends ApiController
         $agencies = Agency::all();
 
         return $this->respond(
-            fractal()->collection($agencies, new AgencyTransformer)->toArray()
+            fractal()->collection($agencies, new AgencyTransformer())->toArray()
         );
     }
 }
