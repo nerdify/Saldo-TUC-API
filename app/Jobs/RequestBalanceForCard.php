@@ -40,7 +40,7 @@ class RequestBalanceForCard extends Job
     public function handle(Client $client)
     {
         try {
-            $response = $client->get('http://mpeso.saldotuc.com/cards/' . $this->card->number . '/balance');
+            $response = $client->get('http://mpeso.saldotuc.com/cards/'.$this->card->number.'/balance');
             $responseParsed = json_decode($response->getBody(), true);
 
             $this->handleBalance($this->card, $responseParsed['balance']);
@@ -73,6 +73,7 @@ class RequestBalanceForCard extends Job
     /**
      * @param $card
      * @param $balance
+     *
      * @return bool
      */
     private function cardNeedsNotification($card, $balance)
@@ -83,7 +84,7 @@ class RequestBalanceForCard extends Job
 
         $notification = $card->notifications()->latest()->first();
 
-        if (! $notification || $notification->received == 0) {
+        if (!$notification || $notification->received == 0) {
             return true;
         }
 

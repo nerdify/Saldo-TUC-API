@@ -12,6 +12,7 @@ class CardsController extends ApiController
      * Display a listing of the resource.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
@@ -20,7 +21,7 @@ class CardsController extends ApiController
 
         return $this->respond(
             fractal()
-                ->collection($cards, new CardTransformer)
+                ->collection($cards, new CardTransformer())
                 ->parseIncludes($request->input('include', []))
                 ->toArray()
         );
@@ -29,8 +30,9 @@ class CardsController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param int $number
+     * @param int     $number
      * @param Request $request
+     *
      * @return Response
      */
     public function show($number, Request $request)
@@ -39,7 +41,7 @@ class CardsController extends ApiController
 
         return $this->respond(
             fractal()
-                ->item($card, new CardTransformer)
+                ->item($card, new CardTransformer())
                 ->parseIncludes($request->input('include', []))
                 ->toArray()
         );

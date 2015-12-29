@@ -12,6 +12,7 @@ class NeighborhoodsController extends ApiController
      * Display a listing of the resource.
      *
      * @param Request $request
+     *
      * @return Response
      */
     public function index(Request $request)
@@ -20,7 +21,7 @@ class NeighborhoodsController extends ApiController
 
         return $this->respond(
             fractal()
-                ->collection($neighborhoods, new NeighborhoodTransformer)
+                ->collection($neighborhoods, new NeighborhoodTransformer())
                 ->parseIncludes($request->input('include', []))
                 ->toArray()
         );

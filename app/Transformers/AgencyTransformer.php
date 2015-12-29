@@ -11,9 +11,9 @@ class AgencyTransformer extends TransformerAbstract
     {
         return [
             'address' => $agency->address,
-            'name' => $agency->name,
-            'lat' => doubleval($agency->lat),
-            'lng' => doubleval($agency->lng),
+            'name'    => $agency->name,
+            'lat'     => floatval($agency->lat),
+            'lng'     => floatval($agency->lng),
         ];
     }
 }

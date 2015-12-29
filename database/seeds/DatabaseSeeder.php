@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         if (app()->environment() == 'production') {
-            die('You can\'t run this in production -.-\'' . PHP_EOL);
+            die('You can\'t run this in production -.-\''.PHP_EOL);
         }
 
         Model::unguard();

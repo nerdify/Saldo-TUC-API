@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Notification;
-use Illuminate\Http\Response;
 use Jenssegers\Optimus\Optimus;
 
 class NotificationsController extends ApiController
@@ -14,6 +13,7 @@ class NotificationsController extends ApiController
      * @param Optimus $optimus
      * @param $number
      * @param $notificationId
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(Optimus $optimus, $number, $notificationId)

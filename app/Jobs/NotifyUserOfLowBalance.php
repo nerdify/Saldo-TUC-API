@@ -51,19 +51,20 @@ class NotifyUserOfLowBalance extends Job
      * @param $notification
      * @param $card
      * @param $balance
+     *
      * @throws \Exception
      */
     private function sendNotificationPush($notification, $card, $balance)
     {
-        $channelName = 'card_' . $card->number;
+        $channelName = 'card_'.$card->number;
         $optimusId = app('optimus')->encode($notification->id);
 
         ParsePush::send([
-            'channels' => [$channelName],
+            'channels'            => [$channelName],
             'expiration_interval' => $this->pushExpirationInterval,
-            'data' => [
-                'card_balance' => number_format($balance->balance, 2),
-                'card_number' => $card->number,
+            'data'                => [
+                'card_balance'    => number_format($balance->balance, 2),
+                'card_number'     => $card->number,
                 'notification_id' => $optimusId,
             ],
         ]);

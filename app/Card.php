@@ -10,7 +10,7 @@ class Card extends Model
      * {@inheritdoc}
      */
     protected $fillable = [
-        'number'
+        'number',
     ];
 
     /**
@@ -37,6 +37,7 @@ class Card extends Model
      * Add new balance.
      *
      * @param float|int $balance
+     *
      * @return Model
      */
     public function addBalance($balance)
@@ -48,7 +49,7 @@ class Card extends Model
         }
 
         return $this->balances()->save(new Balance([
-            'balance' => $balance,
+            'balance'  => $balance,
             'spending' => $this->calculateSpending($balance, $currentBalance),
         ]));
     }
@@ -56,6 +57,7 @@ class Card extends Model
     /**
      * @param $balance
      * @param $currentBalance
+     *
      * @return int|mixed
      */
     private function calculateSpending($balance, $currentBalance)
