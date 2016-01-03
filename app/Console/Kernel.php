@@ -35,8 +35,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('saldotuc:queueForCards')
             ->hourly()
+            ->timezone('America/Managua')
             ->when(function () {
-                $hour = Carbon::now('America/Managua')->hour;
+                $hour = Carbon::now()->hour;
 
                 return $hour >= 6 && $hour <= 20;
             })
