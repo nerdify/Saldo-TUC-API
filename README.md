@@ -1,4 +1,4 @@
-# [Saldo TUC][play-store] API
+# [Saldo TUC][site] API
  
 ## Contributing
 
@@ -8,4 +8,4 @@ Pull requests are welcome.
 
 MIT ©
 
-[play-store]:    https://play.google.com/store/apps/details?id=com.socialimprover.saldotuc
+[site]:    https://saldotuc.com
