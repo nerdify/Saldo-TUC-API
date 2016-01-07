@@ -4,7 +4,6 @@ namespace App\Console;
 
 use App\Console\Commands\DeleteOldNotifications;
 use App\Console\Commands\QueueRequestsForAllCards;
-use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
