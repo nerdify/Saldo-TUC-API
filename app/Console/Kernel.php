@@ -34,13 +34,8 @@ class Kernel extends ConsoleKernel
             ->thenPing('http://beats.envoyer.io/heartbeat/HhrX0UI4HuhmaAO');
 
         $schedule->command('saldotuc:queueForCards')
-            ->hourly()
             ->timezone('America/Managua')
-            ->when(function () {
-                $hour = Carbon::now()->hour;
-
-                return $hour >= 6 && $hour <= 20;
-            })
+            ->cron('0 6-20 * * * *')
             ->thenPing('http://beats.envoyer.io/heartbeat/CLsiwDSqD6XPDu7');
     }
 }
