@@ -11,6 +11,7 @@
         "jenssegers/optimus": "^0.2.0",
         "parse/php-sdk": "^1.1",
         "pda/pheanstalk": "^3.1",
+        "predis/predis": "^1.0",
         "spatie/laravel-fractal": "^1.7",
         "vlucas/phpdotenv": "^2.2"
     },

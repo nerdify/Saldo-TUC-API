@@ -33,8 +33,8 @@ class Kernel extends ConsoleKernel
             ->thenPing('http://beats.envoyer.io/heartbeat/HhrX0UI4HuhmaAO');
 
         $schedule->command('saldotuc:queueForCards')
-            ->timezone('America/Managua')
             ->cron('0 6-20 * * * *')
+            ->timezone('America/Managua')
             ->thenPing('http://beats.envoyer.io/heartbeat/CLsiwDSqD6XPDu7');
     }
 }
