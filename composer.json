@@ -8,6 +8,7 @@
         "php": ">=5.5.9",
         "laravel/lumen-framework": "5.1.*",
         "guzzlehttp/guzzle": "^6.1",
+        "illuminate/redis": "^5.1",
         "jenssegers/optimus": "^0.2.0",
         "parse/php-sdk": "^1.1",
         "pda/pheanstalk": "^3.1",
