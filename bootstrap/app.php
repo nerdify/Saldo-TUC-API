@@ -100,6 +100,7 @@ $app->configure('services');
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\OptimusServiceProvider::class);
 $app->register(App\Providers\ParseServiceProvider::class);
+
 $app->register(Spatie\Fractal\FractalLumenServiceProvider::class);
 
 /*

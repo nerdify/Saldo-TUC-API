@@ -36,7 +36,7 @@ class NotifyUserOfLowBalance extends Job
     }
 
     /**
-     *
+     * Handle Job.
      */
     public function handle()
     {

@@ -35,6 +35,8 @@ class RequestBalanceForCard extends Job
     }
 
     /**
+     * Handle Job.
+     *
      * @param Client $client
      */
     public function handle(Client $client)
@@ -104,6 +106,8 @@ class RequestBalanceForCard extends Job
      */
     private function notifyBalance($card, $balance)
     {
-        $this->dispatch(new NotifyUserOfLowBalance($card, $balance));
+        $job = (new NotifyUserOfLowBalance($card, $balance))->onQueue('notifications');
+
+        $this->dispatch($job);
     }
 }

@@ -20,7 +20,6 @@ class CreateNotificationsTable extends Migration
             $table->foreign('balance_id')->references('id')->on('balances')->onDelete('cascade');
             $table->boolean('received')->default(0);
             $table->timestamps();
-
         });
     }
 
