@@ -106,7 +106,9 @@ class RequestBalanceForCard extends Job
      */
     private function notifyBalance($card, $balance)
     {
-        $job = (new NotifyUserOfLowBalance($card, $balance))->onQueue('notifications');
+        $job = (new NotifyUserOfLowBalance($card, $balance))
+            ->delay(1)
+            ->onQueue('notifications');
 
         $this->dispatch($job);
     }
