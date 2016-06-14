@@ -35,6 +35,8 @@ class RequestBalanceForCard extends Job
     }
 
     /**
+     * Handle Job.
+     *
      * @param Client $client
      */
     public function handle(Client $client)
