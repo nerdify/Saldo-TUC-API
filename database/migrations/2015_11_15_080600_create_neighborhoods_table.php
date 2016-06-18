@@ -14,10 +14,11 @@ class CreateNeighborhoodsTable extends Migration
     {
         Schema::create('neighborhoods', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('district_id')->unsigned();
+            $table->unsignedInteger('district_id');
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

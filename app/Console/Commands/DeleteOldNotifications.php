@@ -30,7 +30,7 @@ class DeleteOldNotifications extends Command
      */
     public function handle()
     {
-        $deleted = Notification::where('created_at', '<=', Carbon::now()->subDay())->delete();
+        $deleted = Notification::where('created_at', '<=', Carbon::now()->subHours(6))->delete();
 
         Log::info(sprintf(
             'Notifications deleted %d.',

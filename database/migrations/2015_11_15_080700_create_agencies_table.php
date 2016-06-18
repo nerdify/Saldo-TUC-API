@@ -14,13 +14,14 @@ class CreateAgenciesTable extends Migration
     {
         Schema::create('agencies', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('neighborhood_id')->unsigned();
+            $table->unsignedInteger('neighborhood_id');
             $table->foreign('neighborhood_id')->references('id')->on('neighborhoods')->onDelete('cascade');
             $table->string('address');
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateDistrictsTable extends Migration
             $table->text('neighborhoods');
             $table->tinyInteger('page');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
