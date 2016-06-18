@@ -13,10 +13,10 @@ class CreateNotificationsTable extends Migration
     public function up()
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('card_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->unsignedInteger('card_id');
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
-            $table->integer('balance_id')->unsigned();
+            $table->unsignedBigInteger('balance_id');
             $table->foreign('balance_id')->references('id')->on('balances')->onDelete('cascade');
             $table->boolean('received')->default(0);
             $table->timestamps();

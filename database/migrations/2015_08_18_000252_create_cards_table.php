@@ -17,6 +17,7 @@ class CreateCardsTable extends Migration
             $table->char('number', 8)->unique();
             $table->index('number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -13,12 +13,13 @@ class CreateBalancesTable extends Migration
     public function up()
     {
         Schema::create('balances', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('card_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->unsignedInteger('card_id');
             $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
-            $table->integer('balance')->unsigned();
-            $table->integer('spending')->unsigned();
+            $table->unsignedInteger('balance');
+            $table->unsignedInteger('spending');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
