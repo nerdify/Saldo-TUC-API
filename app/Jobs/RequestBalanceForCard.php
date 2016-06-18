@@ -6,6 +6,7 @@ use App\Card;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Laravel\Lumen\Routing\DispatchesJobs;
 use Pheanstalk\Exception;
@@ -47,6 +48,9 @@ class RequestBalanceForCard extends Job
 
             $this->handleBalance($this->card, $responseParsed['balance']);
         } catch (ClientException $e) {
+            if (Response::HTTP_NOT_FOUND == $e->getCode()) {
+                $this->card->delete();
+            }
         } catch (\Exception $e) {
             Log::info(sprintf(
                 'Attempting to queue "request balance" for card %s after exception. Delayed execution for 2 seconds after (%d) attempts. Message: [%s] Exception class: [%s]',
