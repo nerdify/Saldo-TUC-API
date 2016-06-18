@@ -29,8 +29,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('saldotuc:notifications:delete')
-            ->daily()
-            ->thenPing('http://beats.envoyer.io/heartbeat/HhrX0UI4HuhmaAO');
+            ->hourly()
+            ->thenPing('http://beats.envoyer.io/heartbeat/igVnYOlRQEqsC86');
 
         $schedule->command('saldotuc:queueForCards')
             ->cron('0 6-20 * * * *')
