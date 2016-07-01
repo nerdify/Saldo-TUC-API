@@ -4,7 +4,6 @@ $app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'v1'], function 
     /*
      * Cards
      */
-    $app->get('cards', 'CardsController@index');
     $app->get('cards/{number:\d{8}}', 'CardsController@show');
 
     /*
