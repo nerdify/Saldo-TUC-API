@@ -9,25 +9,6 @@ use Illuminate\Http\Request;
 class CardsController extends ApiController
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function index(Request $request)
-    {
-        $cards = Card::all();
-
-        return $this->respond(
-            fractal()
-                ->collection($cards, new CardTransformer())
-                ->parseIncludes($request->input('include', []))
-                ->toArray()
-        );
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param int     $number
